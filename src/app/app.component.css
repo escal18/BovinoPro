@@ -1,0 +1,29 @@
+.app-layout {
+    display: flex;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    width: 100%; /* Asegura cobertura total */
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 110px; 
+    transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Quitamos el padding de aquí para que el Navbar pegue arriba */
+}
+
+.main-content.content-expanded {
+    margin-left: 300px;
+}
+
+.page-container {
+    margin: 100px 25px 25px 25px; /* 100px arriba para dejar espacio al Navbar fijo */
+    background: white;
+    border-radius: 24px;
+    flex: 1; /* Esto hace que el contenedor blanco crezca hasta el final */
+    padding: 30px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
