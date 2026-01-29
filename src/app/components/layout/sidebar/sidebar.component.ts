@@ -33,7 +33,7 @@ export class SidebarComponent {
     accion: '/dashboard' 
   },
   { 
-    nombre: 'Inventario', 
+    nombre: 'Animales', 
     icono: 'view_cozy',       // Representa el corral o grupo de ganado
     accion: '/inventario' 
   },
