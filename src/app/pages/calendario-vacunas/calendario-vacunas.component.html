@@ -1,0 +1,93 @@
+<div class="calendario-container">
+    <header class="header-principal">
+        <div>
+            <h1>Control Sanitario <span class="badge-total">{{ historial.length }}</span></h1>
+            <p>Registro global de aplicaciones y tratamientos</p>
+        </div>
+        <button class="btn-nuevo" (click)="mostrarFormulario = !mostrarFormulario">
+            <span class="material-symbols-outlined">{{ mostrarFormulario ? 'close' : 'add' }}</span>
+            {{ mostrarFormulario ? 'Cancelar' : 'Registrar Aplicación' }}
+        </button>
+    </header>
+
+    <section class="card-form" *ngIf="mostrarFormulario">
+        <h2>Nueva Aplicación</h2>
+        <div class="grid-form">
+            <div class="input-group">
+                <label>Seleccionar Animal</label>
+                <select [(ngModel)]="nuevoRegistro.areteAnimal">
+                    <option value="" disabled>Seleccione un arete</option>
+                    <option *ngFor="let a of listaAnimales" [value]="a.arete">
+                        {{ a.arete }} - {{ a.nombre }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Tipo</label>
+                <select [(ngModel)]="nuevoRegistro.tipo">
+                    <option value="Vacuna">Vacuna</option>
+                    <option value="Medicamento">Medicamento</option>
+                    <option value="Desparasitante">Desparasitante</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Medicamento / Producto</label>
+                <input type="text" [(ngModel)]="nuevoRegistro.nombreMedicamento" placeholder="Ej: Complejo B">
+            </div>
+
+            <div class="input-group">
+                <label>Fecha</label>
+                <input type="date" [(ngModel)]="nuevoRegistro.fechaAplicacion">
+            </div>
+
+            <div class="input-group full-width">
+                <label>Motivo de la aplicación (Por qué)</label>
+                <textarea [(ngModel)]="nuevoRegistro.motivo"
+                    placeholder="Describa la razón del tratamiento o diagnóstico..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Veterinario / Responsable</label>
+                <input type="text" [(ngModel)]="nuevoRegistro.veterinario" placeholder="Nombre del Dr.">
+            </div>
+
+            <div class="form-actions">
+                <button class="btn-save" (click)="guardarRegistro()">
+                    Guardar Registro
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="lista-historial">
+        <div class="tabla-header">
+            <span>Fecha</span>
+            <span>Animal</span>
+            <span>Aplicación</span>
+            <span>Motivo / Por qué</span>
+            <span>Responsable</span>
+        </div>
+
+        <div class="fila-registro" *ngFor="let item of historial" [ngClass]="item.tipo.toLowerCase()">
+            <div class="col-fecha">
+                <strong>{{ item.fechaAplicacion | date:'dd/MM' }}</strong>
+                <span>{{ item.fechaAplicacion | date:'yyyy' }}</span>
+            </div>
+            <div class="col-animal">
+                <span class="arete-label">{{ item.areteAnimal }}</span>
+            </div>
+            <div class="col-info">
+                <span class="tipo-tag">{{ item.tipo }}</span>
+                <strong>{{ item.nombreMedicamento }}</strong>
+            </div>
+            <div class="col-motivo">
+                <p>{{ item.motivo }}</p>
+            </div>
+            <div class="col-vet">
+                <span>{{ item.veterinario }}</span>
+            </div>
+        </div>
+    </section>
+</div>

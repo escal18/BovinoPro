@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AnimalService } from '../animal.service';
 import { Animal } from '../animal.model';
 import { CommonModule } from '@angular/common';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-inventario',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './inventario.component.html',
   styleUrl: './inventario.component.css'
 })

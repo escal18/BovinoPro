@@ -30,7 +30,7 @@
                     <div class="info-item">
                         <span class="material-symbols-outlined">male</span>
                         <div>
-                            <label>Padre (IA)</label>
+                            <label>Padre</label>
                             <p>{{ animal.padre }}</p>
                         </div>
                     </div>
@@ -53,10 +53,14 @@
 
             <div class="card-footer">
                 <button class="btn-expand" (click)="toggleDetalle(animal.id)">
-                    {{ animalExpandido === animal.id ? 'Cerrar' : 'Ver Linaje y Datos' }}
                     <span class="material-symbols-outlined">
-                        {{ animalExpandido === animal.id ? 'expand_less' : 'expand_more' }}
+                        {{ animalExpandido === animal.id ? 'keyboard_arrow_up' : 'info' }}
                     </span>
+                </button>
+
+                <button class="btn-go-detail" [routerLink]="['/animal', animal.arete]">
+                    Ver Ficha Técnica
+                    <span class="material-symbols-outlined">chevron_right</span>
                 </button>
             </div>
         </div>

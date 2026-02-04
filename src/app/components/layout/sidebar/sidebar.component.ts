@@ -37,7 +37,7 @@ export class SidebarComponent {
   { 
     nombre: 'Salud y Vacunas', 
     icono: 'vaccines',         // Icono médico claro para tratamiento
-    accion: '/salud' 
+    accion: '/calendario-vacunas' 
   },
   { 
     nombre: 'Nacimientos', 

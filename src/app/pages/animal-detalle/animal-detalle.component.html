@@ -1,1 +1,94 @@
-<p>animal-detalle works!</p>
+<div class="detalle-wrapper" *ngIf="animal">
+    <header class="detalle-header">
+        <div class="header-main">
+            <button class="btn-circle" (click)="regresar()">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div>
+                <span class="badge-arete">{{ animal.arete }}</span>
+                <h1>{{ animal.nombre }}</h1>
+            </div>
+        </div>
+        <div class="header-status">
+            <div class="status-indicator" [ngClass]="animal.estado.toLowerCase().replace(' ', '-')">
+                {{ animal.estado }}
+            </div>
+        </div>
+    </header>
+
+    <div class="detalle-grid">
+        <section class="info-card">
+            <h2><span class="material-symbols-outlined">info</span> Datos Generales</h2>
+            <div class="data-row">
+                <label>Raza</label>
+                <span>{{ animal.raza }}</span>
+            </div>
+            <div class="data-row">
+                <label>Fecha de Nacimiento</label>
+                <span>{{ animal.fechaNacimiento }}</span>
+            </div>
+            <div class="data-row">
+                <label>Lote Actual</label>
+                <span class="lote-tag">{{ animal.lote }}</span>
+            </div>
+        </section>
+
+        <section class="info-card genetic-card">
+            <h2><span class="material-symbols-outlined">family_history</span> Linaje </h2>
+            <div class="genealogy-tree">
+                <div class="parent-box">
+                    <span class="material-symbols-outlined icon-male">male</span>
+                    <div>
+                        <label>Padre (Semental)</label>
+                        <p>{{ animal.padre }}</p>
+                    </div>
+                </div>
+                <div class="parent-box">
+                    <span class="material-symbols-outlined icon-female">female</span>
+                    <div>
+                        <label>Madre</label>
+                        <p>{{ animal.madre || 'Sin registro' }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-card production-card">
+            <div class="card-header-flex">
+                <h2><span class="material-symbols-outlined">monitoring</span> Producción Actual</h2>
+                <button class="btn-edit" (click)="toggleEdicion()">
+                    <span class="material-symbols-outlined">{{ editandoProduccion ? 'close' : 'edit_note' }}</span>
+                </button>
+            </div>
+
+            <div class="production-content">
+                <div class="stat-circle" *ngIf="!editandoProduccion">
+                    <span class="value">{{ animal.produccionDiaria }}</span>
+                    <span class="unit">Litros/Día</span>
+                </div>
+
+                <div class="edit-box" *ngIf="editandoProduccion">
+                    <label>Registrar pesada de hoy (Lts)</label>
+                    <div class="input-group">
+                        <input type="number" [(ngModel)]="nuevaProduccion" step="0.1" min="0">
+                        <button class="btn-save" (click)="guardarProduccion()">
+                            <span class="material-symbols-outlined">check</span>
+                        </button>
+                    </div>
+                    <p class="helper-text">Se actualizará el promedio diario del animal.</p>
+                </div>
+
+                <div class="stat-info" *ngIf="!editandoProduccion">
+                    <p>Esta vaca representa el <strong>12%</strong> de la producción del lote <strong>{{ animal.lote
+                            }}</strong>.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="not-found" *ngIf="!animal">
+    <span class="material-symbols-outlined">error</span>
+    <p>No se encontró información para este arete.</p>
+    <button (click)="regresar()">Volver al Inventario</button>
+</div>

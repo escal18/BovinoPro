@@ -1,0 +1,242 @@
+.detalle-wrapper {
+    animation: fadeIn 0.5s ease-out;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.detalle-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    background: white;
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.header-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-circle:hover {
+    background: #f1f5f9;
+    border-color: #3b82f6;
+}
+
+.badge-arete {
+    background: #1e293b;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-weight: 800;
+    font-size: 0.9rem;
+}
+
+.detalle-header h1 {
+    margin: 5px 0 0;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.status-indicator {
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.saludable { background: #dcfce7; color: #166534; }
+.en-observación { background: #fef3c7; color: #92400e; }
+.tratamiento { background: #fee2e2; color: #991b1b; }
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 28px;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.info-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    color: #334155;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.data-row label {
+    font-weight: 700;
+    color: #64748b;
+}
+
+.data-row span {
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.lote-tag {
+    background: #eff6ff;
+    color: #3b82f6;
+    padding: 4px 12px;
+    border-radius: 8px;
+}
+
+.parent-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+}
+
+.icon-male { color: #3b82f6; }
+.icon-female { color: #ec4899; }
+
+.stat-circle {
+    width: 120px;
+    height: 120px;
+    border: 8px solid #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.stat-circle .value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.stat-circle .unit {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #64748b;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #f1f5f9;
+    margin-bottom: 25px;
+}
+
+.card-header-flex h2 {
+    border-bottom: none !important;
+    margin-bottom: 15px !important;
+}
+
+.btn-edit {
+    background: #f1f5f9;
+    border: none;
+    color: #3b82f6;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-edit:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.edit-box {
+    text-align: center;
+    padding: 20px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.edit-box label {
+    display: block;
+    font-weight: 800;
+    color: #475569;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group input {
+    width: 120px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #3b82f6;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    color: #1e293b;
+}
+
+.btn-save {
+    background: #22c55e;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+}
+
+.helper-text {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 15px;
+}
