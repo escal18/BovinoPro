@@ -1,64 +1,95 @@
 <div class="dashboard-wrapper">
     <header class="dashboard-header">
-        <h1>Panel de Control <span class="text-accent">Ganadero</span></h1>
-        <p>Resumen general del estado de la Granja Lolita</p>
+        <div class="header-text">
+            <h1>Panel de Control <span class="text-accent">Granja Lolita</span></h1>
+            <p>Bienvenido de vuelta a <strong>Granja Lolita</strong>. Aquí el estado de hoy.</p>
+        </div>
+        <button class="btn-primary">
+            <span class="material-symbols-outlined">add</span>
+            Registrar Ordeña
+        </button>
     </header>
 
     <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-icon cattle">
-                <span class="material-symbols-outlined">pest_control_rodent</span>
-            </div>
-            <div class="stat-info">
-                <h3>124</h3>
-                <p>Cabezas Totales</p>
-            </div>
-            <span class="stat-trend positive">+3 este mes</span>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon milk">
-                <span class="material-symbols-outlined">water_drop</span>
-            </div>
-            <div class="stat-info">
-                <h3>2,450</h3>
-                <p>Litros Hoy (Prom.)</p>
-            </div>
-            <span class="stat-trend positive">↑ 12%</span>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon health">
-                <span class="material-symbols-outlined">vaccines</span>
-            </div>
-            <div class="stat-info">
-                <h3>8</h3>
-                <p>Pendientes Salud</p>
-            </div>
-            <span class="stat-trend negative">Urgente</span>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon births">
-                <span class="material-symbols-outlined">child_care</span>
-            </div>
-            <div class="stat-info">
-                <h3>12</h3>
-                <p>Próximos Partos</p>
-            </div>
-            <span class="stat-trend neutral">Próx. 15 días</span>
-        </div>
     </div>
 
-    <div class="dashboard-content">
-        <div class="main-chart-card">
-            <div class="card-header">
-                <h2>Rendimiento de Ordeña</h2>
-                <button class="btn-text">Ver reporte completo</button>
+    <div class="dashboard-layout">
+        <div class="main-content-area">
+            <div class="main-chart-card">
+                <div class="card-header">
+                    <div class="title-group">
+                        <h2>Rendimiento de Ordeña</h2>
+                        <span class="subtitle">Producción semanal de leche</span>
+                    </div>
+                    <div class="chart-actions">
+                        <span class="badge-info">Lts / Día</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="bar-chart-mock">
+                        <div class="bar" style="height: 60%"><span>Lun</span></div>
+                        <div class="bar" style="height: 80%"><span>Mar</span></div>
+                        <div class="bar" style="height: 45%"><span>Mie</span></div>
+                        <div class="bar" style="height: 90%"><span>Jue</span></div>
+                        <div class="bar" style="height: 75%"><span>Vie</span></div>
+                        <div class="bar active" style="height: 95%"><span>Hoy</span></div>
+                    </div>
+                </div>
             </div>
-            <div class="chart-placeholder">
-                <p>Gráfica de producción de los últimos 7 días</p>
+
+            <div class="table-card">
+                <div class="card-header">
+                    <h2>Ganado con Mayor Producción</h2>
+                </div>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Arete SINIIGA</th>
+                            <th>Raza</th>
+                            <th>Estado</th>
+                            <th>Producción (L)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="arete">01 2345 6789</span></td>
+                            <td>Holstein</td>
+                            <td><span class="status-chip active">Saludable</span></td>
+                            <td><strong>32.5</strong></td>
+                        </tr>
+                        <tr>
+                            <td><span class="arete">01 9876 5432</span></td>
+                            <td>Holstein</td>
+                            <td><span class="status-chip warning">En Observación</span></td>
+                            <td><strong>28.1</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
+
+        <aside class="dashboard-side">
+            <div class="alert-card">
+                <h3>Alertas Sanitarias</h3>
+                <div class="alert-item urgent">
+                    <span class="material-symbols-outlined">error</span>
+                    <div class="alert-text">
+                        <p>Vaca #6789</p>
+                        <span>Falta vacuna Brucelosis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-card">
+                <h3>Próximos Partos</h3>
+                <div class="task-item">
+                    <div class="date-box">
+                        <span class="day">12</span>
+                        <span class="month">Feb</span>
+                    </div>
+                    <p>Vaca #4432 (Lote B)</p>
+                </div>
+            </div>
+        </aside>
     </div>
 </div>

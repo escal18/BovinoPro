@@ -17,14 +17,6 @@ interface ItemNavegacion {
 })
 export class SidebarComponent {
   estaAbierto = false;
-  
-  // Usuario estático ya que no hay login
-  usuario = {
-    nombre: 'Administrador',
-    rol: 'Control Ganadero SADER',
-    correo: 'Rancho "El Lucero"',
-    urlFoto: 'https://ui-avatars.com/api/?name=Admin+Rancho&background=10b981&color=fff'
-  };
 
   elementosNavegacion: ItemNavegacion[] = [
   { 
@@ -34,7 +26,7 @@ export class SidebarComponent {
   },
   { 
     nombre: 'Animales', 
-    icono: 'view_cozy',       // Representa el corral o grupo de ganado
+    icono: 'cow_svg',       // Representa el corral o grupo de ganado
     accion: '/inventario' 
   },
   { 
@@ -49,7 +41,7 @@ export class SidebarComponent {
   },
   { 
     nombre: 'Nacimientos', 
-    icono: 'pets',             // Representa a las crías/becerros
+    icono: 'bedroom_baby',             // Representa a las crías/becerros
     accion: '/nacimientos' 
   },
   { 

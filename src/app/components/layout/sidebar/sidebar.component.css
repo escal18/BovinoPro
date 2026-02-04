@@ -1,14 +1,9 @@
 :host {
-    /* Paleta Holstein: Negro puro, Blanco y Azul Lechero */
     --sidebar-bg: #111111;
-    /* Negro profundo (manchas Holstein) */
     --accent-color: #3b82f6;
-    /* Azul moderno (frescura/limpieza) */
     --text-light: #ffffff;
-    /* Blanco puro */
     --nav-hover: rgba(255, 255, 255, 0.1);
     --text-muted: #94a3b8;
-    /* Gris para elementos secundarios */
 }
 
 .sidebar {
@@ -161,4 +156,17 @@ header {
 .footer-spacer {
     margin-top: auto;
     height: 20px;
+}
+
+.cow-icon-sidebar {
+    width: 35px;   /* Tamaño estándar de Material Symbols */
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cow-icon-sidebar svg {
+    width: 35px;   /* Un poco más pequeño para que no se vea gigante */
+    height: 35px;
 }

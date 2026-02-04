@@ -1,1 +1,64 @@
-<p>inventario works!</p>
+<div class="animals-grid">
+    <div class="animal-card" *ngFor="let animal of listaGanado" [class.is-expanded]="animalExpandido === animal.id">
+
+        <div class="animal-status-tag" [ngClass]="{
+            'healthy': animal.estado === 'Saludable',
+            'observation': animal.estado === 'En Observación',
+            'treatment': animal.estado === 'Tratamiento'
+        }">
+            {{ animal.estado }}
+        </div>
+
+        <div class="animal-details">
+            <div class="id-row">
+                <span class="id-label">Arete SINIIGA</span>
+                <span class="id-value">{{ animal.arete }}</span>
+            </div>
+
+            <h3>{{ animal.nombre }}</h3>
+
+            <div class="specs">
+                <span><strong>Raza:</strong> {{ animal.raza }}</span>
+                <div class="production-mini">
+                    <span class="material-symbols-outlined">water_drop</span>
+                    {{ animal.produccionDiaria }} L
+                </div>
+            </div>
+
+            <div class="extra-info" *ngIf="animalExpandido === animal.id">
+                <div class="genealogy-box">
+                    <div class="info-item">
+                        <span class="material-symbols-outlined">male</span>
+                        <div>
+                            <label>Padre (IA)</label>
+                            <p>{{ animal.padre }}</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="material-symbols-outlined">female</span>
+                        <div>
+                            <label>Madre</label>
+                            <p>{{ animal.madre || 'No registrada' }}</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="material-symbols-outlined">event</span>
+                        <div>
+                            <label>Fecha de Nacimiento</label>
+                            <p>{{ animal.fechaNacimiento }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <button class="btn-expand" (click)="toggleDetalle(animal.id)">
+                    {{ animalExpandido === animal.id ? 'Cerrar' : 'Ver Linaje y Datos' }}
+                    <span class="material-symbols-outlined">
+                        {{ animalExpandido === animal.id ? 'expand_less' : 'expand_more' }}
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
