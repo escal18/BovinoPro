@@ -14,10 +14,8 @@
     width: 70px;
     background: var(--sidebar-bg);
     border-radius: 24px;
-    /* Un poco más redondeado para suavizar el diseño */
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
-    /* Sombra más marcada para que flote sobre el fondo blanco del proyecto */
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -50,10 +48,8 @@ header {
 
 .toggle-btn {
     background: white;
-    /* El botón de menú ahora es blanco para contrastar */
     border: none;
     color: black;
-    /* Icono negro sobre fondo blanco */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -80,16 +76,25 @@ header {
 
 .text-accent {
     color: var(--accent-color);
-    /* El "Pro" será azul lechero */
 }
 
-/* Navegación */
 .nav-menu {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
+}
+
+.nav-item-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.sidebar.open .nav-item-group {
+    align-items: stretch;
 }
 
 .nav-link {
@@ -106,6 +111,7 @@ header {
     width: 50px;
     height: 50px;
     text-decoration: none;
+    position: relative;
 }
 
 .sidebar.open .nav-link {
@@ -115,7 +121,7 @@ header {
 }
 
 .nav-link span {
-    font-size: 26px; /* Un poco más grandes para que se distingan bien */
+    font-size: 26px;
     color: var(--text-light);
     transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -133,33 +139,67 @@ header {
 }
 
 .nav-link:hover span {
-    transform: scale(1.1); /* Efecto de crecimiento al pasar el mouse */
-    color: var(--accent-color); /* El azul lechero que definimos */
+    transform: scale(1.1);
+    color: var(--accent-color);
 }
 
 .nav-link.active {
     background: white;
-    /* Fondo blanco para el ítem activo */
     box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
 }
 
 .nav-link.active span {
     color: #000000;
-    font-variation-settings: 'FILL' 1; /* Rellena el icono si la fuente lo soporta */
+    font-variation-settings: 'FILL' 1;
 }
 
 .nav-link.active p {
     color: black;
-    /* Texto e icono negro cuando está activo (Efecto Holstein) */
 }
 
-.footer-spacer {
-    margin-top: auto;
-    height: 20px;
+.arrow {
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.nav-link.active .arrow {
+    color: black;
+}
+
+.sub-menu {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    margin: 4px 0 8px 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.sub-nav-link {
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 52px;
+    text-align: left;
+    background: none;
+    border: none;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sub-nav-link:hover {
+    color: var(--text-light);
+    background: var(--nav-hover);
+}
+
+.sub-nav-link.active {
+    color: var(--accent-color);
+    font-weight: 700;
 }
 
 .cow-icon-sidebar {
-    width: 35px;   /* Tamaño estándar de Material Symbols */
+    width: 35px;
     height: 35px;
     display: flex;
     align-items: center;
@@ -167,6 +207,11 @@ header {
 }
 
 .cow-icon-sidebar svg {
-    width: 35px;   /* Un poco más pequeño para que no se vea gigante */
+    width: 35px;
     height: 35px;
+}
+
+.footer-spacer {
+    margin-top: auto;
+    height: 20px;
 }

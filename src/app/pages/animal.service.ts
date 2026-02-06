@@ -19,6 +19,7 @@ export class AnimalService {
       estado: 'Saludable',
       produccionDiaria: 32.5,
       lote: 'Ordeña',
+      sexo: 'Hembra' // <--- Añade esto
     },
     {
       id: 2,
@@ -31,6 +32,7 @@ export class AnimalService {
       estado: 'En Observación',
       produccionDiaria: 28.1,
       lote: 'Ordeña',
+      sexo: 'Hembra' // <--- Añade esto
     },
   ];
 
@@ -45,6 +47,10 @@ export class AnimalService {
   agregarAnimal(animal: Animal) {
     this.ganado.push(animal);
     this.ganadoSubject.next(this.ganado);
+  }
+
+  getGanadoSync(): Animal[] {
+    return this.ganado;
   }
 
 actualizarAnimal(animalActualizado: Animal) {

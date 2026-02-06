@@ -9,4 +9,11 @@ export interface Animal {
     estado: 'Saludable' | 'En Observación' | 'Tratamiento';
     produccionDiaria: number;
     lote: string;
+    // Nuevos campos para nacimientos
+    sexo: 'Macho' | 'Hembra';
+    pesoAlNacer?: number;
+    facilidadParto?: 'Normal' | 'Asistido' | 'Cesárea' | 'Distócico';
+    vigor?: number; // Escala 1-5
+    colostroRecibido?: boolean;
+    desinfeccionOmbligo?: boolean;
 }

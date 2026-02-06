@@ -1,13 +1,15 @@
 <div class="form-wrapper">
     <header class="form-header">
         <div>
-            <h1>Registrar <span class="text-accent">Linaje y Animal</span></h1>
-            <p>Control de inseminación artificial y registro de nacimiento.</p>
+            <h1>Registrar <span class="text-accent">Nuevo Nacimiento</span></h1>
+            <p>Control de linaje y protocolo neonatal inmediato.</p>
         </div>
     </header>
 
     <div class="form-card">
         <form [formGroup]="animalForm" (ngSubmit)="onSubmit()">
+
+            <h3 class="section-title">1. Identificación y Linaje</h3>
             <div class="form-grid">
                 <div class="form-group">
                     <label>Número de Arete (SINIIGA)</label>
@@ -18,65 +20,78 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Nombre del Animal</label>
-                    <input type="text" formControlName="nombre" placeholder="Ej. Lucero">
+                    <label>Nombre de la Cría</label>
+                    <input type="text" formControlName="nombre" placeholder="Ej. Lucero Junior">
                 </div>
 
                 <div class="form-group">
-                    <label>Padre (Semental)</label>
-                    <div class="input-with-icon">
-                        <span class="material-symbols-outlined">Male</span>
-                        <input type="text" formControlName="padre" placeholder="Nombre o Código del Toro">
-                    </div>
+                    <label>Sexo</label>
+                    <select formControlName="sexo">
+                        <option value="Hembra">Hembra</option>
+                        <option value="Macho">Macho</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
                     <label>Madre (Vaca)</label>
-                    <div class="input-with-icon">
-                        <span class="material-symbols-outlined">Female</span>
-                        <input type="text" formControlName="madre" placeholder="Nombre o Arete de la madre">
-                    </div>
+                    <select formControlName="madre">
+                        <option value="">Seleccione a la madre...</option>
+                        <option *ngFor="let m of madresDisponibles" [value]="m.nombre">{{m.nombre}} ({{m.arete}})
+                        </option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Raza</label>
-                    <select formControlName="raza">
-                        <option value="Holstein">Holstein</option>
-                        <option value="Jersey">Jersey</option>
-                        <option value="Pardo Suizo">Pardo Suizo</option>
-                        <option value="Cruza">Cruza / Sardo Negro</option>
-                    </select>
+                    <label>Padre (Semental)</label>
+                    <input type="text" formControlName="padre" placeholder="Nombre o Código del Toro">
                 </div>
 
                 <div class="form-group">
                     <label>Fecha de Nacimiento</label>
                     <input type="date" formControlName="fechaNacimiento">
                 </div>
+            </div>
 
+            <h3 class="section-title">2. Detalles del Parto</h3>
+            <div class="form-grid">
                 <div class="form-group">
-                    <label>Estado de Salud</label>
-                    <select formControlName="estado">
-                        <option value="Saludable">Saludable</option>
-                        <option value="En Observación">En Observación</option>
-                        <option value="Tratamiento">En Tratamiento</option>
+                    <label>Facilidad de Parto</label>
+                    <select formControlName="facilidadParto">
+                        <option value="Normal">Normal (Sin ayuda)</option>
+                        <option value="Asistido">Asistido (Tirado manual)</option>
+                        <option value="Cesárea">Cesárea</option>
+                        <option value="Distócico">Distócico (Complicado)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Asignar a Lote</label>
-                    <select formControlName="lote">
-                        <option value="Ordeña">Lote Ordeña</option>
-                        <option value="Secas">Lote Secas</option>
-                        <option value="Maternidad">Maternidad</option>
-                        <option value="Novillas">Novillas</option>
-                    </select>
+                    <label>Peso al Nacer (kg)</label>
+                    <input type="number" formControlName="pesoAlNacer" placeholder="Ej. 35">
                 </div>
+
+                <div class="form-group">
+                    <label>Vigor del Neonato (1-5)</label>
+                    <input type="range" min="1" max="5" formControlName="vigor">
+                    <small>1: Débil | 5: Muy Activo</small>
+                </div>
+            </div>
+
+            <h3 class="section-title">3. Protocolo Neonatal</h3>
+            <div class="checklist-grid">
+                <label class="checkbox-item">
+                    <input type="checkbox" formControlName="colostroRecibido">
+                    <span>Suministro de Calostro (Primeras 2h)</span>
+                </label>
+                <label class="checkbox-item">
+                    <input type="checkbox" formControlName="desinfeccionOmbligo">
+                    <span>Desinfección de Ombligo realizada</span>
+                </label>
             </div>
 
             <div class="form-actions">
                 <button type="button" class="btn-cancel" (click)="regresar()">Cancelar</button>
                 <button type="submit" class="btn-submit" [disabled]="animalForm.invalid">
-                    Guardar Registro IA
+                    Completar Registro de Nacimiento
                 </button>
             </div>
         </form>
