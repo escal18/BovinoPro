@@ -1,1 +1,31 @@
-<p>nacimientos-listado works!</p>
+<div class="page-container">
+    <header>
+        <h1>Listado de <span class="text-accent">Crías</span></h1>
+        <p>Registro histórico de animales nacidos en el rancho.</p>
+    </header>
+
+    <div class="table-card">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Arete</th>
+                    <th>Nombre</th>
+                    <th>Madre</th>
+                    <th>Fecha Nac.</th>
+                    <th>Sexo</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cria of crias$ | async">
+                    <td><strong>{{ cria.arete }}</strong></td>
+                    <td>{{ cria.nombre }}</td>
+                    <td>{{ cria.madre }}</td>
+                    <td>{{ cria.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ cria.sexo }}</td>
+                    <td><span class="badge" [ngClass]="cria.estado.toLowerCase()">{{ cria.estado }}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="page-container">
+    <header>
+        <h1>Alertas de <span class="text-accent">Partos</span></h1>
+        <p>Vacas en el último periodo de gestación.</p>
+    </header>
+
+    <div class="grid-partos">
+        <div class="parto-card" *ngFor="let vaca of partos$ | async"
+            [class.urgente]="getDiasRestantes(vaca.fechaPartoEstimada!) <= 7">
+            <div class="card-header">
+                <span class="material-symbols-outlined">event_upcoming</span>
+                <span class="dias">Faltan: {{ getDiasRestantes(vaca.fechaPartoEstimada!) }} días</span>
+            </div>
+            <div class="card-body">
+                <h3>{{ vaca.nombre }} ({{ vaca.arete }})</h3>
+                <p><strong>Fecha Probable:</strong> {{ vaca.fechaPartoEstimada | date:'longDate' }}</p>
+                <p><strong>Padre de la Cría:</strong> {{ vaca.padre }}</p>
+            </div>
+        </div>
+    </div>
+</div>

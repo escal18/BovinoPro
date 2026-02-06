@@ -6,7 +6,7 @@ export interface Animal {
     fechaNacimiento: string;
     padre: string;
     madre: string;
-    estado: 'Saludable' | 'En Observación' | 'Tratamiento';
+    estado: 'Saludable' | 'En Observación' | 'Tratamiento' | 'Preñada';
     produccionDiaria: number;
     lote: string;
     // Nuevos campos para nacimientos
@@ -16,4 +16,6 @@ export interface Animal {
     vigor?: number; // Escala 1-5
     colostroRecibido?: boolean;
     desinfeccionOmbligo?: boolean;
+    fechaUltimoServicio?: string; 
+    fechaPartoEstimada?: string;
 }

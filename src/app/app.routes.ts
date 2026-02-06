@@ -5,6 +5,7 @@ import { AnimalFormularioComponent } from './pages/animal-formulario/animal-form
 import { AnimalDetalleComponent } from './pages/animal-detalle/animal-detalle.component';
 import { CalendarioVacunasComponent } from './pages/calendario-vacunas/calendario-vacunas.component';
 import { NacimientosListadoComponent } from './pages/nacimientos-listado/nacimientos-listado.component';
+import { ProximosPartosComponent } from './pages/proximos-partos/proximos-partos.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -14,6 +15,8 @@ export const routes: Routes = [
     { path: 'animal/:arete', component: AnimalDetalleComponent }, 
     { path: 'calendario-vacunas', component: CalendarioVacunasComponent },
     { path: 'nacimientos', component: NacimientosListadoComponent }, 
+    { path: 'registrar-nacimiento', component: AnimalFormularioComponent },
+    { path: 'proximos-partos', component: ProximosPartosComponent },
     { path: 'registrar-nacimiento', component: AnimalFormularioComponent },
     { path: '**', redirectTo: 'dashboard' } // Redirección por si el usuario se pierde
 ];
